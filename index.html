@@ -410,6 +410,121 @@
     animation: blink 1.5s infinite;
   }
 
+  /* ===== DEVELOPMENT PARTNERS / OGA CARE ===== */
+  .partners-header {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .partners-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; color: var(--muted);
+    letter-spacing: 0.12em; text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .partners-line { flex: 1; height: 1px; background: var(--border); }
+
+  .oga-card {
+    background: linear-gradient(135deg, rgba(10,18,32,0.98) 0%, rgba(13,25,42,0.98) 100%);
+    border: 1px solid rgba(0,200,180,0.22);
+    border-radius: 20px;
+    padding: 2.5rem 3rem;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  .oga-card::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 340px; height: 340px;
+    background: radial-gradient(circle at top right, rgba(0,200,180,0.09) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .oga-card::after {
+    content: '';
+    position: absolute; bottom: -40px; left: -40px;
+    width: 220px; height: 220px;
+    background: radial-gradient(circle, rgba(0,136,255,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .oga-left { position: relative; z-index: 1; }
+  .oga-partner-tag {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(0,200,180,0.08);
+    border: 1px solid rgba(0,200,180,0.2);
+    color: var(--teal);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.3rem 0.85rem; border-radius: 100px;
+    margin-bottom: 1.25rem;
+  }
+  .oga-tag-dot {
+    width: 5px; height: 5px;
+    background: var(--teal); border-radius: 50%;
+    animation: blink 1.5s infinite;
+    display: inline-block; flex-shrink: 0;
+  }
+  .oga-name {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.7rem, 2.8vw, 2.4rem);
+    font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;
+    margin-bottom: 0.6rem; color: var(--text);
+  }
+  .oga-name .oga-accent { color: var(--teal); }
+  .oga-tagline {
+    font-size: 1rem; color: var(--muted); line-height: 1.75;
+    max-width: 360px; margin-bottom: 1.75rem;
+  }
+  .oga-launch-badge {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: rgba(245,158,11,0.1);
+    border: 1px solid rgba(245,158,11,0.3);
+    color: var(--amber); font-size: 0.78rem; font-weight: 600;
+    padding: 0.45rem 1.1rem; border-radius: 7px;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.01em;
+  }
+  .oga-right { position: relative; z-index: 1; }
+  .oga-features {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem;
+  }
+  .oga-feature {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px; padding: 1.1rem 1.2rem;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .oga-feature:hover {
+    border-color: rgba(0,200,180,0.22);
+    background: rgba(0,200,180,0.04);
+  }
+  .oga-feature-icon { font-size: 1.3rem; margin-bottom: 0.45rem; }
+  .oga-feature-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.87rem; font-weight: 700;
+    margin-bottom: 0.3rem; color: var(--text);
+    line-height: 1.2;
+  }
+  .oga-feature-desc { font-size: 0.77rem; color: var(--muted); line-height: 1.55; }
+  .oga-mobile-hint {
+    display: flex; align-items: flex-start; gap: 0.75rem;
+    padding: 0.9rem 1.2rem;
+    background: rgba(0,136,255,0.06);
+    border: 1px solid rgba(0,136,255,0.14);
+    border-radius: 10px; grid-column: 1 / -1;
+  }
+  .oga-mobile-hint-icon { font-size: 1.25rem; flex-shrink: 0; margin-top: 0.05rem; }
+  .oga-mobile-hint-text { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+  .oga-mobile-hint-text strong { color: var(--text); font-weight: 600; }
+
+  @media (max-width: 768px) {
+    .oga-card { grid-template-columns: 1fr; gap: 2rem; padding: 1.75rem 1.5rem; }
+    .oga-features { grid-template-columns: 1fr; }
+    .oga-mobile-hint { grid-column: auto; }
+  }
+
   /* ===== COLLABORATE ===== */
   #collaborate { background: var(--bg2); }
   .collab-grid {
@@ -811,6 +926,64 @@
       </div>
     </div>
   </div>
+
+  <!-- =============================================
+       DEVELOPMENT PARTNERS: OGA CARE
+       ============================================= -->
+  <div class="reveal" style="margin-top:3.5rem;">
+    <div class="partners-header">
+      <span class="partners-label">Development Partners</span>
+      <div class="partners-line"></div>
+    </div>
+    <div class="oga-card">
+      <!-- Left: Branding & pitch -->
+      <div class="oga-left">
+        <div class="oga-partner-tag">
+          <span class="oga-tag-dot"></span>&nbsp;In Development
+        </div>
+        <div class="oga-name"><span class="oga-accent">OGA</span> Care</div>
+        <p class="oga-tagline">
+          Launching a compact prescription writing and practice management platform.
+          Write prescriptions on your mobile. See records. Set reminders. Get AI-powered differential diagnosis — all in one place.
+        </p>
+        <div class="oga-launch-badge">
+          🚀 Launching Soon &mdash; EMC Digitals &times; OGA Care
+        </div>
+      </div>
+      <!-- Right: Feature grid -->
+      <div class="oga-right">
+        <div class="oga-features">
+          <div class="oga-feature">
+            <div class="oga-feature-icon">📱</div>
+            <div class="oga-feature-title">Write on Mobile</div>
+            <div class="oga-feature-desc">Complete prescription drafting and digital signing from your smartphone — clinic, ward, or bedside.</div>
+          </div>
+          <div class="oga-feature">
+            <div class="oga-feature-icon">📂</div>
+            <div class="oga-feature-title">Patient Records</div>
+            <div class="oga-feature-desc">Quick-access visit history, investigations, and medication timelines — all in one screen.</div>
+          </div>
+          <div class="oga-feature">
+            <div class="oga-feature-icon">🔔</div>
+            <div class="oga-feature-title">Smart Reminders</div>
+            <div class="oga-feature-desc">Automated follow-up and medication reminders for patients — reduce no-shows, improve adherence.</div>
+          </div>
+          <div class="oga-feature">
+            <div class="oga-feature-icon">🧠</div>
+            <div class="oga-feature-title">AI Clinical Assistant</div>
+            <div class="oga-feature-desc">Differential diagnosis support at the point of care — structured DDx powered by AI, in seconds.</div>
+          </div>
+          <div class="oga-mobile-hint">
+            <div class="oga-mobile-hint-icon">⚡</div>
+            <div class="oga-mobile-hint-text">
+              <strong>Compact by design.</strong> Built for Indian clinic workflows — fast, lightweight, and works on any device without a desktop setup.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ============================================= -->
 
   <!-- TABS -->
   <div class="portfolio-tabs reveal" style="margin-top:3rem;">
@@ -1406,6 +1579,7 @@
             <option value="">Select a product (optional)...</option>
             <option>EasyMyCare Clinic</option>
             <option>Safe2Peak</option>
+            <option>OGA Care</option>
             <option>ECG Learning Platform</option>
             <option>CXR Learning App</option>
             <option>PFT Analysis Tool</option>
@@ -1438,8 +1612,8 @@
       <ul>
         <li><a href="https://easymycareclinic.com" target="_blank">EasyMyCare Clinic</a></li>
         <li><a href="https://safe2peak.com" target="_blank">Safe2Peak</a></li>
+        <li><a href="#portfolio">OGA Care — Coming Soon</a></li>
         <li><a href="https://gemini-ecg.streamlit.app" target="_blank">ECG Learning</a></li>
-        <li><a href="https://cxr-learning-app-2.streamlit.app" target="_blank">CXR AI App</a></li>
         <li><a href="https://mrcp-xi.vercel.app" target="_blank">MRCP Roadmap</a></li>
       </ul>
     </div>
