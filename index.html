@@ -308,6 +308,40 @@
     border-color: var(--teal);
   }
 
+  .portfolio-filter-wrap {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1rem 1rem 0.25rem;
+    margin-top: 3rem;
+  }
+  .portfolio-filter-label {
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 0 0 0.75rem 0.25rem;
+  }
+  .portfolio-filter-wrap .portfolio-tabs { margin-bottom: 0.75rem; }
+  .portfolio-count {
+    color: var(--muted);
+    font-size: 0.82rem;
+    margin: 0 0.25rem 0.75rem;
+  }
+  .portfolio-count strong { color: var(--text); }
+  .category-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-bottom: 0.9rem;
+    color: var(--teal2);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
   .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -1002,144 +1036,162 @@
   </div>
   <!-- ============================================= -->
 
-  <!-- TABS -->
-  <div class="portfolio-tabs reveal" style="margin-top:3rem;">
-    <button class="tab-btn active" onclick="showTab('all')">All</button>
-    <button class="tab-btn" onclick="showTab('mvp')">MVPs</button>
-    <button class="tab-btn" onclick="showTab('prototype')">Prototypes</button>
-    <button class="tab-btn" onclick="showTab('coming')">Coming Soon</button>
+  <!-- PORTFOLIO CATEGORY FILTERS -->
+  <div class="portfolio-filter-wrap reveal">
+    <div class="portfolio-filter-label">Browse by category</div>
+    <div class="portfolio-tabs">
+      <button class="tab-btn active" data-filter="all" onclick="showTab('all')">All Projects</button>
+      <button class="tab-btn" data-filter="clinical" onclick="showTab('clinical')">🩺 Clinical Tools</button>
+      <button class="tab-btn" data-filter="education" onclick="showTab('education')">🎓 Education</button>
+      <button class="tab-btn" data-filter="research" onclick="showTab('research')">🔬 Research</button>
+      <button class="tab-btn" data-filter="business" onclick="showTab('business')">📈 Business & Practice</button>
+      <button class="tab-btn" data-filter="coming" onclick="showTab('coming')">✨ Coming Soon</button>
+    </div>
+    <div class="portfolio-count" id="portfolio-count"><strong>24</strong> projects shown</div>
   </div>
 
   <!-- ALL CARDS -->
   <div id="tab-all" class="tab-content active portfolio-grid reveal">
 
     <!-- MVPs -->
-    <div class="portfolio-card">
+    <div class="portfolio-card" data-category="education">
       <div class="card-top">
         <div class="card-icon icon-teal">📊</div>
         <span class="card-badge badge-mvp">MVP</span>
       </div>
+      <div class="category-chip">Education</div>
       <div class="card-title">MRCP Part 1 Roadmap</div>
       <div class="card-desc">Interactive study roadmap and revision tracker for MRCP Part 1 examinees, covering cardiology, haematology and more.</div>
       <div class="card-tags"><span class="tag">Next.js</span><span class="tag">Vercel</span><span class="tag">Medical Edu</span></div>
       <a href="https://mrcp-xi.vercel.app" target="_blank" class="card-link">Open App <span class="card-link-icon">↗</span></a>
     </div>
 
-    <div class="portfolio-card">
+    <div class="portfolio-card" data-category="clinical">
       <div class="card-top">
         <div class="card-icon icon-blue">🫀</div>
         <span class="card-badge badge-mvp">MVP</span>
       </div>
+      <div class="category-chip">Clinical Tool</div>
       <div class="card-title">ABG Interpreter</div>
       <div class="card-desc">Learn and interpret Arterial Blood Gas results interactively. Step-by-step AI-guided analysis for clinical trainees.</div>
       <div class="card-tags"><span class="tag">Streamlit</span><span class="tag">AI</span><span class="tag">Cardiology</span></div>
       <a href="https://abg-reader.streamlit.app" target="_blank" class="card-link">Open App <span class="card-link-icon">↗</span></a>
     </div>
 
-    <div class="portfolio-card">
+    <div class="portfolio-card" data-category="clinical">
       <div class="card-top">
         <div class="card-icon icon-rose">💊</div>
         <span class="card-badge badge-mvp">MVP</span>
       </div>
+      <div class="category-chip">Clinical Tool</div>
       <div class="card-title">Hypertension Assessment</div>
       <div class="card-desc">Comprehensive hypertension risk evaluation and management guide built for clinical decision support.</div>
       <div class="card-tags"><span class="tag">Streamlit</span><span class="tag">Clinical</span><span class="tag">AI</span></div>
       <a href="https://hypertension-02.streamlit.app" target="_blank" class="card-link">Open App <span class="card-link-icon">↗</span></a>
     </div>
 
-    <div class="portfolio-card">
+    <div class="portfolio-card" data-category="clinical">
       <div class="card-top">
         <div class="card-icon icon-amber">🔬</div>
         <span class="card-badge badge-mvp">MVP</span>
       </div>
+      <div class="category-chip">Clinical Tool</div>
       <div class="card-title">Blood Analysis AI Tool</div>
       <div class="card-desc">AI-powered interpretation of blood investigation reports. Provides structured clinical inferences from CBC and biochemistry panels.</div>
       <div class="card-tags"><span class="tag">Streamlit</span><span class="tag">AI</span><span class="tag">Diagnostics</span></div>
       <a href="https://7blood-analysis-app.streamlit.app" target="_blank" class="card-link">Open App <span class="card-link-icon">↗</span></a>
     </div>
 
-    <div class="portfolio-card">
+    <div class="portfolio-card" data-category="clinical">
       <div class="card-top">
         <div class="card-icon icon-teal">💧</div>
         <span class="card-badge badge-mvp">MVP</span>
       </div>
+      <div class="category-chip">Clinical Tool</div>
       <div class="card-title">Volume Overload Guide</div>
       <div class="card-desc">Clinical assessment tool for fluid overload evaluation in heart failure, CKD, and ICU patients.</div>
       <div class="card-tags"><span class="tag">Next.js</span><span class="tag">Vercel</span><span class="tag">Cardiology</span></div>
       <a href="https://volume-overload-guide-1.vercel.app" target="_blank" class="card-link">Open App <span class="card-link-icon">↗</span></a>
     </div>
 
-    <div class="portfolio-card">
+    <div class="portfolio-card" data-category="clinical">
       <div class="card-top">
         <div class="card-icon icon-violet">🍃</div>
         <span class="card-badge badge-mvp">MVP</span>
       </div>
+      <div class="category-chip">Clinical Tool</div>
       <div class="card-title">Vitamin Use Guide</div>
       <div class="card-desc">Evidence-based vitamin supplementation guide for clinicians and patients. Covers deficiency patterns and dosing protocols.</div>
       <div class="card-tags"><span class="tag">Streamlit</span><span class="tag">Nutrition</span><span class="tag">AI</span></div>
       <a href="https://vitaguide.streamlit.app" target="_blank" class="card-link">Open App <span class="card-link-icon">↗</span></a>
     </div>
 
-    <div class="portfolio-card">
+    <div class="portfolio-card" data-category="clinical">
       <div class="card-top">
         <div class="card-icon icon-rose">🚭</div>
         <span class="card-badge badge-mvp">MVP</span>
       </div>
+      <div class="category-chip">Clinical Tool</div>
       <div class="card-title">Smoking Cessation Support</div>
       <div class="card-desc">AI-driven support application for smoking cessation — tracks progress, provides motivational guidance and clinical protocols.</div>
       <div class="card-tags"><span class="tag">Streamlit</span><span class="tag">Behavioral</span><span class="tag">AI</span></div>
       <a href="https://smoking-cessation-support.streamlit.app" target="_blank" class="card-link">Open App <span class="card-link-icon">↗</span></a>
     </div>
 
-    <div class="portfolio-card">
+    <div class="portfolio-card" data-category="clinical">
       <div class="card-top">
         <div class="card-icon icon-blue">🫁</div>
         <span class="card-badge badge-mvp">MVP</span>
       </div>
+      <div class="category-chip">Clinical Tool</div>
       <div class="card-title">COPD Assessment & Treatment</div>
       <div class="card-desc">Structured COPD evaluation tool following GOLD guidelines. Helps classify severity and recommend evidence-based treatment.</div>
       <div class="card-tags"><span class="tag">Streamlit</span><span class="tag">Pulmonology</span><span class="tag">Clinical</span></div>
       <a href="https://copd-treatment.streamlit.app" target="_blank" class="card-link">Open App <span class="card-link-icon">↗</span></a>
     </div>
 
-    <div class="portfolio-card">
+    <div class="portfolio-card" data-category="business">
       <div class="card-top">
         <div class="card-icon icon-amber">📄</div>
         <span class="card-badge badge-mvp">MVP</span>
       </div>
+      <div class="category-chip">Business & Practice</div>
       <div class="card-title">Medical Certificate Generator</div>
       <div class="card-desc">Issue multiple types of medical certificates — fitness, sick leave, MLC — with client-side PDF generation. Built in Next.js.</div>
       <div class="card-tags"><span class="tag">Next.js</span><span class="tag">PDF</span><span class="tag">Clinical</span></div>
       <a href="https://medical-certificate-generator-three.vercel.app" target="_blank" class="card-link">Open App <span class="card-link-icon">↗</span></a>
     </div>
 
-    <div class="portfolio-card">
+    <div class="portfolio-card" data-category="clinical">
       <div class="card-top">
         <div class="card-icon icon-teal">🍷</div>
         <span class="card-badge badge-mvp">MVP</span>
       </div>
+      <div class="category-chip">Clinical Tool</div>
       <div class="card-title">AUD Rehab System</div>
       <div class="card-desc">Alcohol Use Disorder evaluation and rehabilitation tracking system — assessment tools and structured de-addiction pathways.</div>
       <div class="card-tags"><span class="tag">Vercel</span><span class="tag">Psychiatry</span><span class="tag">AI</span></div>
       <a href="https://aud-rehab-system-2m4h.vercel.app" target="_blank" class="card-link">Open App <span class="card-link-icon">↗</span></a>
     </div>
 
-    <div class="portfolio-card">
+    <div class="portfolio-card" data-category="business">
       <div class="card-top">
         <div class="card-icon icon-blue">📧</div>
         <span class="card-badge badge-mvp">MVP</span>
       </div>
+      <div class="category-chip">Business & Practice</div>
       <div class="card-title">Bulk HTML Email Sender</div>
       <div class="card-desc">Send professional HTML-formatted bulk emails easily. Built for healthcare startups and clinic outreach campaigns.</div>
       <div class="card-tags"><span class="tag">Streamlit</span><span class="tag">Marketing</span><span class="tag">Automation</span></div>
       <a href="https://e-mail-emc.streamlit.app" target="_blank" class="card-link">Open App <span class="card-link-icon">↗</span></a>
     </div>
 
-    <div class="portfolio-card">
+    <div class="portfolio-card" data-category="business">
       <div class="card-top">
         <div class="card-icon icon-violet">📈</div>
         <span class="card-badge badge-mvp">MVP</span>
       </div>
+      <div class="category-chip">Business & Practice</div>
       <div class="card-title">Marketing Strategy AI v2</div>
       <div class="card-desc">Personalized marketing strategy generator for startups and clinics — with curated resource links and AI-driven suggestions.</div>
       <div class="card-tags"><span class="tag">Streamlit</span><span class="tag">AI</span><span class="tag">Marketing</span></div>
@@ -1147,88 +1199,96 @@
     </div>
 
     <!-- PROTOTYPES -->
-    <div class="portfolio-card">
+    <div class="portfolio-card" data-category="education">
       <div class="card-top">
         <div class="card-icon icon-amber">⚡</div>
         <span class="card-badge badge-prototype">Prototype</span>
       </div>
+      <div class="category-chip">Education</div>
       <div class="card-title">Gemini ECG Learning</div>
       <div class="card-desc">Systematic, interactive ECG education platform powered by Gemini AI. Transforms traditional ECG training into an adaptive experience.</div>
       <div class="card-tags"><span class="tag">Streamlit</span><span class="tag">Gemini</span><span class="tag">ECG</span></div>
       <a href="https://gemini-ecg.streamlit.app" target="_blank" class="card-link">Open App <span class="card-link-icon">↗</span></a>
     </div>
 
-    <div class="portfolio-card">
+    <div class="portfolio-card" data-category="clinical">
       <div class="card-top">
         <div class="card-icon icon-teal">🫁</div>
         <span class="card-badge badge-prototype">Prototype</span>
       </div>
+      <div class="category-chip">Clinical Tool</div>
       <div class="card-title">PFT Analysis Tool</div>
       <div class="card-desc">AI-enhanced pulmonary function test interpretation with interactive learning modules. Streamlines respiratory data analysis.</div>
       <div class="card-tags"><span class="tag">Streamlit</span><span class="tag">AI</span><span class="tag">Pulmonology</span></div>
       <a href="https://pft-analysis-tool.streamlit.app" target="_blank" class="card-link">Open App <span class="card-link-icon">↗</span></a>
     </div>
 
-    <div class="portfolio-card">
+    <div class="portfolio-card" data-category="education">
       <div class="card-top">
         <div class="card-icon icon-blue">🩻</div>
         <span class="card-badge badge-prototype">Prototype</span>
       </div>
+      <div class="category-chip">Education</div>
       <div class="card-title">CXR Learning App v2</div>
       <div class="card-desc">AI-assisted chest X-ray analysis with advanced diagnostic features. Accelerates radiology competency for medical students.</div>
       <div class="card-tags"><span class="tag">Streamlit</span><span class="tag">Computer Vision</span><span class="tag">AI</span></div>
       <a href="https://cxr-learning-app-2.streamlit.app" target="_blank" class="card-link">Open App <span class="card-link-icon">↗</span></a>
     </div>
 
-    <div class="portfolio-card">
+    <div class="portfolio-card" data-category="clinical">
       <div class="card-top">
         <div class="card-icon icon-rose">🫀</div>
         <span class="card-badge badge-prototype">Prototype</span>
       </div>
+      <div class="category-chip">Clinical Tool</div>
       <div class="card-title">Tilt Test Guide</div>
       <div class="card-desc">Specialized cardiology tool for tilt table test protocol guidance — syncope evaluation and autonomic assessment.</div>
       <div class="card-tags"><span class="tag">Streamlit</span><span class="tag">Cardiology</span><span class="tag">Clinical</span></div>
       <a href="https://tilt-test.streamlit.app" target="_blank" class="card-link">Open App <span class="card-link-icon">↗</span></a>
     </div>
 
-    <div class="portfolio-card">
+    <div class="portfolio-card" data-category="education">
       <div class="card-top">
         <div class="card-icon icon-violet">🎮</div>
         <span class="card-badge badge-prototype">Prototype</span>
       </div>
+      <div class="category-chip">Education</div>
       <div class="card-title">Medical Board Game</div>
       <div class="card-desc">Hospital Management — be the top-ranked hospital by correctly diagnosing patients, managing bed capacity, and minimizing referrals.</div>
       <div class="card-tags"><span class="tag">Streamlit</span><span class="tag">Gamification</span><span class="tag">AI</span></div>
       <a href="https://medical-board-game.streamlit.app" target="_blank" class="card-link">Open App <span class="card-link-icon">↗</span></a>
     </div>
 
-    <div class="portfolio-card">
+    <div class="portfolio-card" data-category="clinical">
       <div class="card-top">
         <div class="card-icon icon-amber">🗻</div>
         <span class="card-badge badge-prototype">Prototype</span>
       </div>
+      <div class="category-chip">Clinical Tool</div>
       <div class="card-title">Altitude Sickness App</div>
       <div class="card-desc">Risk analysis and illness prevention for mountaineers and trekkers. Based on Wilderness Medicine guidelines.</div>
       <div class="card-tags"><span class="tag">Streamlit</span><span class="tag">Travel Med</span><span class="tag">Risk</span></div>
       <a href="https://altitude-sickness.streamlit.app" target="_blank" class="card-link">Open App <span class="card-link-icon">↗</span></a>
     </div>
 
-    <div class="portfolio-card">
+    <div class="portfolio-card" data-category="research">
       <div class="card-top">
         <div class="card-icon icon-teal">🦠</div>
         <span class="card-badge badge-prototype">Prototype</span>
       </div>
+      <div class="category-chip">Research</div>
       <div class="card-title">AMR Data Collection</div>
       <div class="card-desc">ML-based multi-user clinical trials data collection for Antimicrobial Resistance studies. Integrates with Airtable for structured data.</div>
       <div class="card-tags"><span class="tag">Streamlit</span><span class="tag">Airtable</span><span class="tag">Research</span></div>
       <a href="https://data-app-airtable.streamlit.app" target="_blank" class="card-link">Open App <span class="card-link-icon">↗</span></a>
     </div>
 
-    <div class="portfolio-card">
+    <div class="portfolio-card" data-category="business">
       <div class="card-top">
         <div class="card-icon icon-blue">🏥</div>
         <span class="card-badge badge-prototype">Prototype</span>
       </div>
+      <div class="category-chip">Business & Practice</div>
       <div class="card-title">Doctor Marketing Platform</div>
       <div class="card-desc">AI-powered marketing strategy and brand-building platform specifically for medical professionals and healthcare practices.</div>
       <div class="card-tags"><span class="tag">Streamlit</span><span class="tag">AI</span><span class="tag">Healthtech</span></div>
@@ -1236,41 +1296,45 @@
     </div>
 
     <!-- COMING SOON -->
-    <div class="portfolio-card coming-card">
+    <div class="portfolio-card coming-card" data-category="education">
       <div class="card-top">
         <div class="card-icon icon-violet">🌐</div>
         <span class="card-badge coming-badge">Coming Soon</span>
       </div>
+      <div class="category-chip">Education</div>
       <div class="card-title">Sharir.com — Human Anatomy</div>
       <div class="card-desc">Interactive anatomy learning platform with AI-guided 3D exploration for medical students.</div>
       <div class="card-tags"><span class="tag">React</span><span class="tag">3D</span><span class="tag">Education</span></div>
     </div>
 
-    <div class="portfolio-card coming-card">
+    <div class="portfolio-card coming-card" data-category="clinical">
       <div class="card-top">
         <div class="card-icon icon-teal">💓</div>
         <span class="card-badge coming-badge">Coming Soon</span>
       </div>
+      <div class="category-chip">Clinical Tool</div>
       <div class="card-title">Heart Failure Assessment</div>
       <div class="card-desc">Comprehensive assessment of heart failure and fluid overload — clinician-guided stepwise diagnosis tool.</div>
       <div class="card-tags"><span class="tag">Cardiology</span><span class="tag">AI</span><span class="tag">Clinical</span></div>
     </div>
 
-    <div class="portfolio-card coming-card">
+    <div class="portfolio-card coming-card" data-category="business">
       <div class="card-top">
         <div class="card-icon icon-amber">🎥</div>
         <span class="card-badge coming-badge">Coming Soon</span>
       </div>
+      <div class="category-chip">Business & Practice</div>
       <div class="card-title">Video Consultation Platform</div>
       <div class="card-desc">NMC-compliant telemedicine platform with prescription generation and ABDM integration.</div>
       <div class="card-tags"><span class="tag">Next.js</span><span class="tag">Teleconsult</span><span class="tag">NMC</span></div>
     </div>
 
-    <div class="portfolio-card coming-card">
+    <div class="portfolio-card coming-card" data-category="clinical">
       <div class="card-top">
         <div class="card-icon icon-rose">🧪</div>
         <span class="card-badge coming-badge">Coming Soon</span>
       </div>
+      <div class="category-chip">Clinical Tool</div>
       <div class="card-title">Liver Function Analyzer</div>
       <div class="card-desc">Assess liver tests the way a clinician reads them — macro to micro diagnosis with AI-powered inference chains.</div>
       <div class="card-tags"><span class="tag">AI</span><span class="tag">Hepatology</span><span class="tag">Clinical</span></div>
@@ -1278,15 +1342,6 @@
 
   </div>
 
-  <!-- MVP ONLY TAB -->
-  <div id="tab-mvp" class="tab-content portfolio-grid reveal">
-  </div>
-  <!-- PROTOTYPE ONLY TAB -->
-  <div id="tab-prototype" class="tab-content portfolio-grid reveal">
-  </div>
-  <!-- COMING ONLY TAB -->
-  <div id="tab-coming" class="tab-content portfolio-grid reveal">
-  </div>
 
 </section>
 
@@ -1666,33 +1721,26 @@
 </footer>
 
 <script>
-  // Tab switching
-  function showTab(tab) {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  // Portfolio category filtering
+  function showTab(category) {
+    const buttons = document.querySelectorAll('.portfolio-filter-wrap .tab-btn');
+    buttons.forEach(b => b.classList.toggle('active', b.dataset.filter === category));
 
-    const btn = [...document.querySelectorAll('.tab-btn')].find(b => b.onclick.toString().includes(`'${tab}'`));
-    if (btn) btn.classList.add('active');
+    const cards = [...document.querySelectorAll('#tab-all .portfolio-card')];
+    let shown = 0;
+    cards.forEach(card => {
+      const isComing = card.classList.contains('coming-card');
+      const matches = category === 'all'
+        || (category === 'coming' && isComing)
+        || (category !== 'coming' && card.dataset.category === category && !isComing);
+      card.style.display = matches ? 'flex' : 'none';
+      if (matches) shown++;
+    });
 
-    const allCards = [...document.querySelectorAll('#tab-all .portfolio-card')];
-
-    if (tab === 'all') {
-      document.getElementById('tab-all').classList.add('active');
-    } else {
-      const target = document.getElementById('tab-' + tab);
-      target.innerHTML = '';
-      allCards.forEach(card => {
-        const badgeEl = card.querySelector('.card-badge');
-        if (!badgeEl) return;
-        const badgeClass = badgeEl.className;
-        let show = false;
-        if (tab === 'mvp' && badgeClass.includes('badge-mvp')) show = true;
-        if (tab === 'prototype' && badgeClass.includes('badge-prototype')) show = true;
-        if (tab === 'coming' && badgeClass.includes('coming-badge')) show = true;
-        if (show) target.appendChild(card.cloneNode(true));
-      });
-      target.classList.add('active');
-    }
+    document.querySelectorAll('.tab-content').forEach(panel => panel.classList.remove('active'));
+    document.getElementById('tab-all').classList.add('active');
+    const count = document.getElementById('portfolio-count');
+    if (count) count.innerHTML = '<strong>' + shown + '</strong> project' + (shown === 1 ? '' : 's') + ' shown';
   }
 
   // Scroll reveal
